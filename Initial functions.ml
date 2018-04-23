@@ -179,3 +179,5 @@ Cons (T(1,Rouge), 2) (Cons (T(2,Rouge), 2) (Cons (T(3,Rouge), 2) (Cons (T(4,Roug
 
 5.1 - Validité de combinaison *)
 
+let rec suite_valide (comb : combinaison) : bool =
+   
