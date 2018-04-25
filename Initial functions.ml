@@ -182,18 +182,21 @@ Cons (T(1,Rouge), 2) (Cons (T(2,Rouge), 2) (Cons (T(3,Rouge), 2) (Cons (T(4,Roug
 (* suite_valide : détermine si la combinaison est une suite : au moins 3 tuiles de même couleur et de valeurs qui se suivent *)
 
 let rec suite_valide (comb : combinaison) : bool =
+  let a =  0 in 
   match comb with
-  |[] -> true
-  |T(nb,couleur)::fin  -> if T(nb+1,couleur) = (suite_valide fin)(nb,couleur)
-			  then suite_valide fin
-                          else false;;
+  |[] -> false
+  |T(nb,couleur)::fin  -> if fin = T(nb+1,couleur)::fin
+			  then a = a + 1 
+			  else false
+                          if a = 3
+                          then true
+			  else
+			     suite_valide fin;;
 			 
 (* Ca ne marche pas : 
-
- |T(nb,couleur)::fin  -> if T(nb+1,couleur) = (suite_valide fin)(nb,couleur)
-                                                 ^^^^^^^^^^^^^^^^^^
-Error: This expression has type bool
-       This is not a function; it cannot be applied. *)
+                            if a = 3
+                            ^^
+Error: Syntax error *)
 
   assert ([T(1,Rouge) ; T(2,Rouge) ; T(3,Rouge)] = true);;
 
