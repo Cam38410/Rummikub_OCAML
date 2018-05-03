@@ -270,7 +270,7 @@ Ne prenait pas en compte les Joker*)
  assert (suite_valide [T(1,Rouge) ; T(2,Rouge) ; T(3,Rouge)] = true);;
 
 
-    (* groupe valide : détermine si la combinaison est un groupe, càd au moins trois tuiles de même valeur et de même couleur *)
+    (* groupe valide : détermine si la combinaison est un groupe, càd au moins trois tuiles de même valeur et de couleur différente  *)
 
   
 let groupe_valide (comb : combinaison) : bool =
